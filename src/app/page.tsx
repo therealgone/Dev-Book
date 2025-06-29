@@ -2,6 +2,8 @@
 "use client";
 import Image from "next/image";
 import Welcome from "./components/welcome";
+import BasicReact from "./components/BasicReact";
+
 
 
 export default function Home() {
@@ -12,7 +14,7 @@ export default function Home() {
       <Welcome/>
       </section>
       <section>
-        
+        <BasicReact/>
       </section>
     </main>
   );
