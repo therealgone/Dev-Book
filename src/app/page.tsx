@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Welcome from "./components/welcome";
 import BasicReact from "./components/BasicReact";
+import Calc from "./components/calc";
 
 
 
@@ -15,6 +16,9 @@ export default function Home() {
       </section>
       <section>
         <BasicReact/>
+      </section>
+      <section>
+       <Calc/>
       </section>
     </main>
   );
