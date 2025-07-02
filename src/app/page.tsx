@@ -1,4 +1,3 @@
-
 "use client";
 import Image from "next/image";
 import Welcome from "./components/welcome";
@@ -6,7 +5,8 @@ import BasicReact from "./components/BasicReact";
 import Calc from "./components/calc";
 import Stopwatch from "./components/stopwatch";
 import SimpleAPI from "./components/SimpleAPI";
-
+import Spline from '@splinetool/react-spline/next';
+import Robo from "./Robo";
 
 
 export default function Home() {
@@ -26,6 +26,9 @@ export default function Home() {
       <section>
         <SimpleAPI/>
       </section>
+  <section className="max-h-screen ">
+   <Robo/>
+  </section>
       
     </main>
   );
