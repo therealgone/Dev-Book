@@ -24,7 +24,8 @@ return()=> clearInterval(interval);
     return(
         <div>
         <button
-        onClick={()=>{SetMode(!mode);}}>{mode ? "Stop" : "Start"}</button>
+        onClick={()=>{SetMode(!mode);}}
+        className={`border-2 text-black ${mode? "bg-red-700":"bg-green-300"}`}>{mode ? "Stop" : "Start"}</button>
         <h1>{time}</h1>
         </div>
     );
