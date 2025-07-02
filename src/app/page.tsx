@@ -5,6 +5,7 @@ import Welcome from "./components/welcome";
 import BasicReact from "./components/BasicReact";
 import Calc from "./components/calc";
 import Stopwatch from "./components/stopwatch";
+import SimpleAPI from "./components/SimpleAPI";
 
 
 
@@ -21,6 +22,9 @@ export default function Home() {
       <section>
        <Calc/>
        <Stopwatch/>
+      </section>
+      <section>
+        <SimpleAPI/>
       </section>
       
     </main>
