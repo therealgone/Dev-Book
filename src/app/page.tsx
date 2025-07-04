@@ -7,29 +7,33 @@ import Stopwatch from "./components/stopwatch";
 import SimpleAPI from "./components/SimpleAPI";
 import Spline from '@splinetool/react-spline/next';
 import Robo from "./Robo";
+import Limit from "./components/Text-limite"
 
 
 export default function Home() {
   return (
-    
+
     <main>
       <section className="min-h-screen">
-      <Welcome/>
+        <Welcome />
       </section>
       <section>
-        <BasicReact/>
+        <BasicReact />
       </section>
       <section>
-       <Calc/>
-       <Stopwatch/>
+        <Calc />
+        <Stopwatch />
       </section>
       <section>
-        <SimpleAPI/>
+        <SimpleAPI />
       </section>
-  <section className="max-h-screen ">
-   <Robo/>
-  </section>
-      
+      <section>
+        <Limit />
+      </section>
+      <section className="max-h-screen ">
+        <Robo />
+      </section>
+
     </main>
   );
 }
