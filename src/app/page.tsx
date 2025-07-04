@@ -8,6 +8,7 @@ import SimpleAPI from "./components/SimpleAPI";
 import Spline from '@splinetool/react-spline/next';
 import Robo from "./Robo";
 import Limit from "./components/Text-limite"
+import Github from "./components/GithubAPI";
 
 
 export default function Home() {
@@ -29,6 +30,9 @@ export default function Home() {
       </section>
       <section>
         <Limit />
+      </section>
+      <section className="min-h-screen text-black">
+      <Github/>
       </section>
       <section className="max-h-screen ">
         <Robo />
