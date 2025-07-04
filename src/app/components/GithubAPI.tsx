@@ -11,8 +11,8 @@ type GithubUser = {
     bio: string;
     public_repos: number;
     html_url: string;
-    blog:string;
-    created_at:string;
+    blog: string;
+    created_at: string;
 };
 
 export default function Github() {
@@ -20,7 +20,7 @@ export default function Github() {
     const [userdata, setUserdata] = useState<GithubUser | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, SetError] = useState("")
-    const[readme,setReadme] = useState("")
+    const [readme, setReadme] = useState("")
 
 
 
@@ -39,17 +39,22 @@ export default function Github() {
         try {
             const me = await fetch(`https://raw.githubusercontent.com/${username}/${username}/main/README.md`)
             const res = await fetch(`https://api.github.com/users/${username}`);
-            if (!res.ok || !me.ok)  throw new Error("NO User Found");
+            if (!res.ok) throw new Error("NO User Found");
 
             const data = await res.json();
             setUserdata(data);
-            
-            const bio = await me.text()
-            setReadme(bio)
+
+            if (!me.ok) {
+                setReadme("");
+            } else {
+                const bio = await me.text();
+                setReadme(bio);
+            }
+
 
         }
 
-        
+
         catch (err: any) {
             SetError(err.message)
         }
@@ -88,16 +93,16 @@ export default function Github() {
                 </div>
             )}
 
-          {readme && (
-  <div className="prose max-w-none">
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw, rehypeSanitize]}
-    >
-      {readme}
-    </ReactMarkdown>
-  </div>
-)}
+            {readme && (
+                <div className="prose max-w-none">
+                    <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw, rehypeSanitize]}
+                    >
+                        {readme}
+                    </ReactMarkdown>
+                </div>
+            )}
 
 
         </div>
