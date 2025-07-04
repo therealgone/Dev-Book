@@ -86,13 +86,17 @@ export default function Github() {
                     <img src={userdata.avatar_url} alt="avatar" width={100} />
                     <h2>{userdata.name}</h2>
                     <p>{userdata.bio}</p>
-                    <a href={userdata.blog}> Vist Website</a>
+
                     <p>{userdata.created_at}</p>
                     <p>Public Repos: {userdata.public_repos}</p>
                     <a href={userdata.html_url} target="_blank">Visit Profile</a>
                 </div>
             )}
-
+            {userdata && userdata.blog && (
+                <a href={userdata.blog} >
+                    Visit Website
+                </a>
+            )}
             {readme && (
                 <div className="prose max-w-none">
                     <ReactMarkdown
