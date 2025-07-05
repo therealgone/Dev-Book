@@ -30,8 +30,8 @@ const codeString = `/**
 import { useEffect, useState } from "react";
 
 export default function stopwatch() {
-    const [time, SetTime] = useState(0)
-    const [mode, SetMode] = useState(false)
+    const [time, SetTime] = useState(0);
+    const [mode, SetMode] = useState(false);
 
     useEffect(() => {
         if (mode === false) return;
@@ -86,4 +86,4 @@ export default function stopwatch() {
             </div>
         </div>
     );
-}`
+}`;
