@@ -6,6 +6,7 @@ import Calc from "./components/calc";
 import Stopwatch from "./components/stopwatch";
 import SimpleAPI from "./components/SimpleAPI";
 import Spline from '@splinetool/react-spline/next';
+import Robo from "./Robo";
 import Limit from "./components/Text-limite"
 import Github from "./components/GithubAPI";
 
@@ -14,7 +15,7 @@ export default function Home() {
   return (
 
     <main className="bg-dark text-white">
-      <section className="min-h-screen">
+      <section>
         <Welcome />
       </section>
       <section>
@@ -32,6 +33,9 @@ export default function Home() {
       </section>
       <section className="min-h-screen">
       <Github/>
+      </section>
+      <section className="max-h-screen ">
+        <Robo />
       </section>
 
     </main>

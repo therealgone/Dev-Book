@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 
 export default function calc() {
+
     const [numa, SetNuma] = useState("")
     const [numb, SetNumb] = useState("")
     const [ans, SetAns] = useState("")
@@ -14,9 +15,11 @@ export default function calc() {
     }
 
     const add = () => {
+
         const a = Number(numa)
         const b = Number(numb)
         SetAns((a + b).toString());
+
     }
 
     const sub = () => {
@@ -24,20 +27,20 @@ export default function calc() {
         const b = Number(numb)
         SetAns((a - b).toString());
     }
-    
     const mul = () => {
         const a = Number(numa)
         const b = Number(numb)
         SetAns((a * b).toString());
     }
-    
     const div = () => {
         const a = Number(numa)
         const b = Number(numb)
         SetAns((a / b).toString());
     }
 
+
     return (
+
         <div>
             <div>
                 <h1> CAlCULATOR</h1>
@@ -63,4 +66,5 @@ export default function calc() {
             </div>
         </div>
     );
+
 }

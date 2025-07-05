@@ -1,3 +1,4 @@
+
 import ReactMarkdown from 'react-markdown';
 import { useState } from "react";
 import remarkGfm from 'remark-gfm';
@@ -21,11 +22,19 @@ export default function Github() {
     const [error, SetError] = useState("")
     const [readme, setReadme] = useState("")
 
+
+
+
+
+
+
     const fetchURL = async () => {
+
         setLoading(true)
         setUserdata(null)
         SetError("")
         setReadme("")
+
 
         try {
             const me = await fetch(`https://raw.githubusercontent.com/${username}/${username}/main/README.md`)
@@ -41,17 +50,27 @@ export default function Github() {
                 const bio = await me.text();
                 setReadme(bio);
             }
+
+
         }
+
+
         catch (err: any) {
             SetError(err.message)
         }
+
         finally {
             setLoading(false)
         }
+
     }
 
+
     return (
+
         <div>
+
+
             <input
                 type="text"
                 onChange={(e) => { setUsername(e.target.value) }}
@@ -88,6 +107,8 @@ export default function Github() {
                     </ReactMarkdown>
                 </div>
             )}
+
+
         </div>
     );
 }
