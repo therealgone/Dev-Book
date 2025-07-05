@@ -1,4 +1,8 @@
-/**
+"use client";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+const codeString = `/**
  * Calculator Component
  * 
  * A simple calculator built with React that demonstrates basic arithmetic operations
@@ -23,14 +27,12 @@
  * @returns {JSX.Element} Interactive calculator with basic arithmetic operations
  */
 import { ChangeEvent, useState } from "react";
-import { useRouter } from 'next/navigation';
 
 export default function calc() {
     // State Management for calculator inputs and result
     const [numa, SetNuma] = useState("")    // First number input
     const [numb, SetNumb] = useState("")    // Second number input
     const [ans, SetAns] = useState("")      // Calculated result
-    const router = useRouter();
 
     /**
      * Handles changes to the first number input field
@@ -96,72 +98,70 @@ export default function calc() {
     }
 
     return (
-        <div className="min-h-screen bg-dark text-white pt-20">
+        <div className=\"min-h-screen bg-dark text-white pt-20\">
             {/* Calculator Title */}
-            <h1 className="text-7xl text-center font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mb-16">
+            <h1 className=\"text-7xl text-center font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mb-16\">
                 Calculator
             </h1>
             
-            <div className="max-w-2xl mx-auto px-6">
+            <div className=\"max-w-2xl mx-auto px-6\">
                 {/* Main Calculator Container */}
-                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold transition-colors mb-4"
-                        onClick={() => router.push('/calc')}>Show Code</button>
-                    <h2 className="text-3xl font-bold text-[#007ACC] mb-8 text-center">Simple Calculator</h2>
+                <div className=\"bg-gray-800 rounded-xl p-8 border border-gray-700\">
+                    <h2 className=\"text-3xl font-bold text-[#007ACC] mb-8 text-center\">Simple Calculator</h2>
                     
-                    <div className="space-y-6">
+                    <div className=\"space-y-6\">
                         {/* Input Fields Section */}
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className=\"flex flex-col sm:flex-row gap-4\">
                             {/* First Number Input */}
                             <input
-                                type="number"
-                                placeholder="Enter first number"
+                                type=\"number\"
+                                placeholder=\"Enter first number\"
                                 onChange={handelinputa}
                                 value={numa}
-                                className="flex-1 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007ACC]"
+                                className=\"flex-1 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007ACC]\"
                             />
                             {/* Second Number Input */}
                             <input
-                                type="number"
-                                placeholder="Enter second number"
+                                type=\"number\"
+                                placeholder=\"Enter second number\"
                                 onChange={handelinputb}
                                 value={numb}
-                                className="flex-1 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007ACC]"
+                                className=\"flex-1 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007ACC]\"
                             />
                         </div>
 
                         {/* Operation Buttons Section */}
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div className=\"grid grid-cols-2 sm:grid-cols-4 gap-3\">
                             {/* Addition Button */}
                             <button 
                                 onClick={add}
-                                className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                className=\"bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors\">
                                 ADD
                             </button>
                             {/* Subtraction Button */}
                             <button 
                                 onClick={sub}
-                                className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                className=\"bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors\">
                                 SUB
                             </button>
                             {/* Multiplication Button */}
                             <button 
                                 onClick={mul}
-                                className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                className=\"bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors\">
                                 MUL
                             </button>
                             {/* Division Button */}
                             <button 
                                 onClick={div}
-                                className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                className=\"bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors\">
                                 DIV
                             </button>
                         </div>
 
                         {/* Result Display Section */}
-                        <div className="text-center">
-                            <h3 className="text-2xl font-semibold text-gray-300 mb-2">Result:</h3>
-                            <h1 className="text-6xl font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC]">
+                        <div className=\"text-center\">
+                            <h3 className=\"text-2xl font-semibold text-gray-300 mb-2\">Result:</h3>
+                            <h1 className=\"text-6xl font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC]\">
                                 {ans || "0"}
                             </h1>
                         </div>
@@ -170,4 +170,23 @@ export default function calc() {
             </div>
         </div>
     );
-}
+}`;
+
+export default function CalcCode() {
+  return (
+    <div className="min-h-screen text-white pt-20">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-[#007ACC] mb-4">Calculator Component Code</h1>
+          <p className="text-gray-300 text-lg">This demonstrates a basic calculator with arithmetic operations in React.</p>
+        </div>
+        <div className="bg-gray-900 rounded-xl p-6 border border-gray-700">
+          <SyntaxHighlighter language="tsx" style={vscDarkPlus} customStyle={{margin:0,borderRadius:'1rem',fontSize:'14px',lineHeight:'1.7'}}>{codeString}</SyntaxHighlighter>
+        </div>
+        <div className="mt-8 text-center">
+          <button onClick={() => window.history.back()} className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors">← Back to Components</button>
+        </div>
+      </div>
+    </div>
+  );
+} 

@@ -24,6 +24,7 @@
  * @returns {JSX.Element} Interactive React fundamentals playground
  */
 "use client";
+import { useRouter } from 'next/navigation';
 
 import { useState } from "react";
 
@@ -35,6 +36,7 @@ export default function BasicReact() {
     const [mode, SetMode] = useState(false);         // Theme toggle state
     const [todo, SetTodo] = useState<string[]>([]);  // Todo list array state
     const [color, SetColor] = useState("");          // Color picker state
+    const router = useRouter();                      // Next.js router for navigation
 
     /**
      * Handles input field changes and updates the input state
@@ -101,17 +103,18 @@ export default function BasicReact() {
     }
 
     return (
-        <div className={`min-h-screen text-white pt-20 transition-all duration-300 ${
-            mode ? 'bg-gradient-to-b from-gray-900 to-black' : 'bg-transparent'
-        }`}>
+        <div className={`min-h-screen text-white pt-20 transition-all duration-300 ${mode ? 'bg-gradient-to-b from-gray-900 to-black' : 'bg-transparent'
+            }`}>
             {/* Component Title */}
             <h1 className="text-7xl text-center font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mb-16">
                 React Ground Zero
             </h1>
-            
+
             <div className="max-w-4xl mx-auto px-6 space-y-12">
                 {/* Counter Section - Demonstrates basic state updates */}
-                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700 ">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold  transition-colors mb-4"
+                    onClick={() => router.push('/counter')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Counter</h2>
                     <div className="flex items-center justify-center gap-4 mb-4">
                         <button
@@ -126,10 +129,13 @@ export default function BasicReact() {
                         </button>
                     </div>
                     <h1 className="text-6xl text-center font-bold text-white">{count}</h1>
+
                 </div>
 
                 {/* Input Display Section - Shows real-time state updates */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold  transition-colors mb-4"
+                    onClick={() => router.push('/input-display')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Input Display</h2>
                     <div className="flex flex-col items-center gap-4">
                         <input
@@ -145,6 +151,8 @@ export default function BasicReact() {
 
                 {/* Show/Hide Section - Demonstrates conditional rendering */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold  transition-colors mb-4"
+                    onClick={() => router.push('/show-hide')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Show/Hide</h2>
                     <div className="flex flex-col items-center gap-4">
                         <button
@@ -163,6 +171,8 @@ export default function BasicReact() {
 
                 {/* Theme Toggle Section - Dynamic styling based on state */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold  transition-colors mb-4"
+                    onClick={() => router.push('/theme-toggle')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Theme Toggle</h2>
                     <div className="flex justify-center">
                         <button
@@ -175,6 +185,8 @@ export default function BasicReact() {
 
                 {/* Todo List Section - Array manipulation and CRUD operations */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold  transition-colors mb-4"
+                    onClick={() => router.push('/todo-list')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Todo List</h2>
                     <div className="flex flex-col items-center gap-4 mb-6">
                         <input
@@ -185,19 +197,19 @@ export default function BasicReact() {
                             placeholder="Add a new todo..."
                             className="w-full max-w-md px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007ACC]"
                         />
-                        <button 
+                        <button
                             className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                             onClick={Addtodo}>
                             Add Todo
                         </button>
                     </div>
-                    
+
                     {/* Todo items list with delete functionality */}
                     <div className="space-y-2">
                         {todo.map((item, index) => (
                             <div key={index} className="flex items-center justify-between bg-gray-700 p-4 rounded-lg">
                                 <span className="text-white font-medium">{item}</span>
-                                <button 
+                                <button
                                     className="text-red-400 hover:text-red-300 transition-colors"
                                     onClick={() => handeldelete(index)}>
                                     ❌
@@ -209,6 +221,8 @@ export default function BasicReact() {
 
                 {/* Color Changer Section - Dynamic styling with conditional classes */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold  transition-colors mb-4"
+                    onClick={() => router.push('/color-changer')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Color Changer</h2>
                     <div className="flex flex-col items-center gap-6">
                         {/* Color display box with dynamic background */}
@@ -220,22 +234,22 @@ export default function BasicReact() {
                             ${color === "purple" ? "bg-purple-600" : ""}
                             ${!color ? "bg-gray-700" : ""}
                         `} />
-                        
+
                         {/* Color selection buttons */}
                         <div className="flex flex-wrap justify-center gap-2">
-                            <button 
+                            <button
                                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                                 onClick={() => SetColor("red")}>RED</button>
-                            <button 
+                            <button
                                 className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                                 onClick={() => SetColor("green")}>GREEN</button>
-                            <button 
+                            <button
                                 className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                                 onClick={() => SetColor("blue")}>BLUE</button>
-                            <button 
+                            <button
                                 className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                                 onClick={() => SetColor("orange")}>ORANGE</button>
-                            <button 
+                            <button
                                 className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                                 onClick={() => SetColor("purple")}>PURPLE</button>
                         </div>
