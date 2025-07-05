@@ -1,43 +1,86 @@
 "use client";
-import Image from "next/image";
 import Welcome from "./components/welcome";
 import BasicReact from "./components/BasicReact";
 import Calc from "./components/calc";
 import Stopwatch from "./components/stopwatch";
 import SimpleAPI from "./components/SimpleAPI";
-import Spline from '@splinetool/react-spline/next';
-import Robo from "./Robo";
-import Limit from "./components/Text-limite"
+import Limit from "./components/Text-limite";
 import Github from "./components/GithubAPI";
-
+import Section from "./components/Section";
 
 export default function Home() {
   return (
-
-    <main className="bg-dark text-white  overflow-hidden  ">
-      <section>
+    <main className="w-full">
+      {/* Hero Section - Standalone Welcome */}
+      <section id="welcome" className="min-h-screen flex flex-col justify-center">
         <Welcome />
       </section>
-      <section>
-        <BasicReact />
-      </section>
-      <section>
-        <Calc />
-        <Stopwatch />
-      </section>
-      <section>
-        <SimpleAPI />
-      </section>
-      <section>
-        <Limit />
-      </section>
-      <section className="min-h-screen">
-      <Github/>
-      </section>
-      <section className="max-h-screen ">
-        <Robo />
-      </section>
 
+      {/* React Basics Section */}
+      <Section
+        id="react"
+        title="React Basics"
+        description="Master the fundamentals of React with interactive examples and real-world applications."
+      >
+        <div className="card-modern">
+          <BasicReact />
+        </div>
+      </Section>
+
+      {/* Calculator Section */}
+      <Section
+        id="calc"
+        title="Calculator"
+        description="A modern calculator built with React, showcasing state management and user interactions."
+      >
+        <div className="card-modern">
+          <Calc />
+        </div>
+      </Section>
+
+      {/* Stopwatch Section */}
+      <Section
+        id="stopwatch"
+        title="Stopwatch"
+        description="A precise stopwatch with start, stop, and reset functionality, demonstrating React hooks and timing."
+      >
+        <div className="card-modern">
+          <Stopwatch />
+        </div>
+      </Section>
+
+      {/* API Section */}
+      <Section
+        id="api"
+        title="Weather API"
+        description="Connect to real-world APIs and display dynamic data with React components."
+      >
+        <div className="card-modern">
+          <SimpleAPI />
+        </div>
+      </Section>
+
+      {/* Text Tools Section */}
+      <Section
+        id="text"
+        title="Text Tools"
+        description="Utility tools for text processing, character counting, and input validation."
+      >
+        <div className="card-modern">
+          <Limit />
+        </div>
+      </Section>
+
+      {/* GitHub Section */}
+      <Section
+        id="github"
+        title="GitHub Integration"
+        description="Search and display GitHub profiles, showcasing API integration and data visualization."
+      >
+        <div className="card-modern">
+          <Github />
+        </div>
+      </Section>
     </main>
   );
 }

@@ -1,75 +1,116 @@
+/**
+ * BasicReact Component
+ * 
+ * A comprehensive React fundamentals playground that demonstrates core React concepts
+ * including state management, event handling, conditional rendering, and user interactions.
+ * 
+ * Features:
+ * - Counter with increment and reset functionality
+ * - Real-time input display
+ * - Show/Hide conditional rendering
+ * - Theme toggle (dark/light background)
+ * - Todo list with add/delete functionality
+ * - Color picker with dynamic background changes
+ * 
+ * Learning Concepts Demonstrated:
+ * - useState hook for state management
+ * - Event handlers (onClick, onChange, onKeyDown)
+ * - Conditional rendering with && operator
+ * - Array manipulation (filter, spread operator)
+ * - Dynamic styling with conditional classes
+ * - Form handling and input validation
+ * 
+ * @component
+ * @returns {JSX.Element} Interactive React fundamentals playground
+ */
 "use client";
 
 import { useState } from "react";
 
-
 export default function BasicReact() {
+    // State Management for different features
+    const [count, setCount] = useState(0);           // Counter state
+    const [input, SetInput] = useState("");          // Input field state
+    const [show, SetShow] = useState(false);         // Show/Hide toggle state
+    const [mode, SetMode] = useState(false);         // Theme toggle state
+    const [todo, SetTodo] = useState<string[]>([]);  // Todo list array state
+    const [color, SetColor] = useState("");          // Color picker state
 
-    const [count, setCount] = useState(0);
-    const [input, SetInput] = useState("");
-    const [show, SetShow] = useState(false)
-    const [mode, SetMode] = useState(false)
-    const [todo, SetTodo] = useState<string[]>([]);
-    const [color, SetColor] = useState("");
-
-
-
-
-
-
-
+    /**
+     * Handles input field changes and updates the input state
+     * @param {React.ChangeEvent<HTMLInputElement>} e - Input change event
+     */
     const handelinput = (e: React.ChangeEvent<HTMLInputElement>) => {
         SetInput(e.target.value)
-
     }
 
+    /**
+     * Handles Enter key press in input fields to trigger todo addition
+     * @param {React.KeyboardEvent<HTMLInputElement>} e - Keyboard event
+     */
     const Enter = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key == "Enter") {
             Addtodo();
         }
     }
 
-
+    /**
+     * Toggles the theme between light and dark modes
+     * Changes the background gradient of the component
+     */
     const handelbg = () => {
         SetMode(!mode)
-
     }
 
+    /**
+     * Increments the counter by 1
+     * Demonstrates basic state updates
+     */
     const handelclick = () => {
         setCount(count + 1);
-
     }
 
-
+    /**
+     * Adds a new todo item to the list
+     * Validates that input is not empty before adding
+     * Clears the input field after adding
+     */
     const Addtodo = () => {
         if (input.trim() === "")
             return;
-        SetTodo([...todo, input])
-        SetInput("");
-
+        SetTodo([...todo, input])  // Spread operator to add new item
+        SetInput("");              // Clear input field
     }
 
+    /**
+     * Removes a todo item by its index
+     * Uses filter to create a new array without the specified item
+     * @param {number} index - Index of the todo item to delete
+     */
     const handeldelete = (index: number) => {
         const update = todo.filter((_, i) => i !== index);
         SetTodo(update)
-
     }
 
+    /**
+     * Placeholder function for clearing all todos
+     * Can be implemented to clear the entire todo list
+     */
     const DeleteAll = () => {
-
+        // Logic for delete all - can be implemented as needed
     }
-
-
-
 
     return (
-        <div className="min-h-screen bg-dark text-white pt-20">
+        <div className={`min-h-screen text-white pt-20 transition-all duration-300 ${
+            mode ? 'bg-gradient-to-b from-gray-900 to-black' : 'bg-transparent'
+        }`}>
+            {/* Component Title */}
             <h1 className="text-7xl text-center font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mb-16">
                 React Ground Zero
             </h1>
             
             <div className="max-w-4xl mx-auto px-6 space-y-12">
-                {/* Count Section */}
+                {/* Counter Section - Demonstrates basic state updates */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Counter</h2>
                     <div className="flex items-center justify-center gap-4 mb-4">
@@ -87,7 +128,7 @@ export default function BasicReact() {
                     <h1 className="text-6xl text-center font-bold text-white">{count}</h1>
                 </div>
 
-                {/* Input Display Section */}
+                {/* Input Display Section - Shows real-time state updates */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Input Display</h2>
                     <div className="flex flex-col items-center gap-4">
@@ -102,7 +143,7 @@ export default function BasicReact() {
                     </div>
                 </div>
 
-                {/* Show/Hide Section */}
+                {/* Show/Hide Section - Demonstrates conditional rendering */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Show/Hide</h2>
                     <div className="flex flex-col items-center gap-4">
@@ -111,6 +152,7 @@ export default function BasicReact() {
                             onClick={() => SetShow(!show)}>
                             {show ? "HIDE" : "SHOW"}
                         </button>
+                        {/* Conditional rendering using && operator */}
                         {show && (
                             <h1 className="text-2xl font-semibold text-[#007ACC] text-shadow-[0_0_5px_#007ACC]">
                                 THIS IS SECRET TEXT
@@ -119,19 +161,19 @@ export default function BasicReact() {
                     </div>
                 </div>
 
-                {/* Theme Toggle */}
+                {/* Theme Toggle Section - Dynamic styling based on state */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Theme Toggle</h2>
                     <div className="flex justify-center">
                         <button
                             className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                             onClick={handelbg}>
-                            {mode ? "LIGHT MODE" : "DARK MODE"}
+                            {mode ? "Light Theme" : "Dark Theme"}
                         </button>
                     </div>
                 </div>
 
-                {/* Todo List */}
+                {/* Todo List Section - Array manipulation and CRUD operations */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Todo List</h2>
                     <div className="flex flex-col items-center gap-4 mb-6">
@@ -150,6 +192,7 @@ export default function BasicReact() {
                         </button>
                     </div>
                     
+                    {/* Todo items list with delete functionality */}
                     <div className="space-y-2">
                         {todo.map((item, index) => (
                             <div key={index} className="flex items-center justify-between bg-gray-700 p-4 rounded-lg">
@@ -164,10 +207,11 @@ export default function BasicReact() {
                     </div>
                 </div>
 
-                {/* Color Changer */}
+                {/* Color Changer Section - Dynamic styling with conditional classes */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Color Changer</h2>
                     <div className="flex flex-col items-center gap-6">
+                        {/* Color display box with dynamic background */}
                         <div className={`w-64 h-64 border-2 border-gray-600 rounded-xl transition-colors
                             ${color === "red" ? "bg-red-500" : ""}
                             ${color === "green" ? "bg-green-500" : ""}
@@ -177,6 +221,7 @@ export default function BasicReact() {
                             ${!color ? "bg-gray-700" : ""}
                         `} />
                         
+                        {/* Color selection buttons */}
                         <div className="flex flex-wrap justify-center gap-2">
                             <button 
                                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
@@ -199,7 +244,6 @@ export default function BasicReact() {
             </div>
         </div>
     );
-
 }
 
 
