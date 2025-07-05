@@ -56,7 +56,7 @@ export default function Navbar() {
             className="text-2xl font-bold accent-blue cursor-pointer transition-all duration-150 hover:scale-105"
             onClick={() => scrollToSection("welcome")}
           >
-            Dev-Book
+            Dev - Book
           </div>
 
           {/* Navigation Links */}
