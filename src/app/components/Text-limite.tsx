@@ -26,12 +26,14 @@
  * @returns {JSX.Element} Text analysis tool with word/character counting and limit validation
  */
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function Text() {
     // State Management for text analysis functionality
     const [limit, setLimit] = useState("")  // Main text input
     const [text, setText] = useState(0)     // Word count
     const [len, setLen] = useState(0)       // Character limit setting
+    const router = useRouter();
 
     /**
      * Handles changes to the main text input field
@@ -70,6 +72,8 @@ export default function Text() {
             <div className="max-w-2xl mx-auto px-6">
                 {/* Main Text Tools Container */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold transition-colors mb-4"
+                        onClick={() => router.push('/text-limit')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-8 text-center">Character & Word Counter</h2>
                     
                     <div className="space-y-6">

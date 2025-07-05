@@ -25,11 +25,13 @@
  * @returns {JSX.Element} Weather API interface with city selection and data display
  */
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function SimpleAPI() {
     // State Management for API functionality
     const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);  // Selected coordinates
     const [weather, setWeather] = useState<{ temp: number, wind: number } | null>(null);  // Weather data
+    const router = useRouter();
 
     /**
      * useEffect hook to fetch weather data when coordinates change
@@ -59,6 +61,8 @@ export default function SimpleAPI() {
             <div className="max-w-4xl mx-auto px-6">
                 {/* Main API Container */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold transition-colors mb-4"
+                        onClick={() => router.push('/simpleapi')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-8 text-center">Global Weather</h2>
                     
                     {/* City Selection Buttons */}

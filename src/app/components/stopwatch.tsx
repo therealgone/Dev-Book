@@ -24,11 +24,13 @@
  * @returns {JSX.Element} Interactive stopwatch with start, stop, and reset functionality
  */
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function stopwatch() {
     // State Management for stopwatch functionality
     const [time, SetTime] = useState(0)      // Current time in seconds
     const [mode, SetMode] = useState(false)  // Timer running state (true = running, false = stopped)
+    const router = useRouter();
 
     /**
      * useEffect hook to manage the timer interval
@@ -70,6 +72,8 @@ export default function stopwatch() {
             <div className="max-w-2xl mx-auto px-6">
                 {/* Main Stopwatch Container */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold transition-colors mb-4"
+                        onClick={() => router.push('/stopwatch')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-8 text-center">Timer</h2>
                     
                     <div className="flex flex-col items-center space-y-8">
