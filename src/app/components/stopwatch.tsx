@@ -90,11 +90,7 @@ export default function stopwatch() {
                             {/* Start/Stop Button - Changes color and text based on state */}
                             <button
                                 onClick={() => { SetMode(!mode); }}
-                                className={`px-8 py-4 rounded-lg font-semibold transition-colors ${
-                                    mode 
-                                        ? "bg-red-600 hover:bg-red-700 text-white" 
-                                        : "bg-green-600 hover:bg-green-700 text-white"
-                                }`}>
+                                className={`px-8 py-4 rounded-lg font-semibold transition-colors ${mode ? "bg-red-600 hover:bg-red-700 text-white" : "bg-green-600 hover:bg-green-700 text-white" }`} >
                                 {mode ? "Stop" : "Start"}
                             </button>
                             
