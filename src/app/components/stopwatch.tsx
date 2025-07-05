@@ -54,7 +54,7 @@ export default function stopwatch() {
      * Resets the timer to zero
      * Stops the timer if it's running and sets time back to 0
      */
-    const handelReset = () =>{
+    const handelReset = () => {
         SetTime(0)  // Reset time to 0
     }
 
@@ -68,14 +68,14 @@ export default function stopwatch() {
             <h1 className="text-7xl text-center font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mb-16">
                 Stopwatch
             </h1>
-            
+
             <div className="max-w-2xl mx-auto px-6">
                 {/* Main Stopwatch Container */}
                 <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
                     <button className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold transition-colors mb-4"
                         onClick={() => router.push('/stopwatch')}>Show Code</button>
                     <h2 className="text-3xl font-bold text-[#007ACC] mb-8 text-center">Timer</h2>
-                    
+
                     <div className="flex flex-col items-center space-y-8">
                         {/* Time Display Section */}
                         <div className="text-center">
@@ -84,18 +84,21 @@ export default function stopwatch() {
                                 {min.toString().padStart(2, '0')}:{sec.toString().padStart(2, '0')}
                             </h1>
                         </div>
-                        
+
                         {/* Control Buttons Section */}
                         <div className="flex gap-4">
                             {/* Start/Stop Button - Changes color and text based on state */}
                             <button
-                                onClick={() => { SetMode(!mode); }}
-                                className={`px-8 py-4 rounded-lg font-semibold transition-colors ${mode ? "bg-red-600 hover:bg-red-700 text-white" : "bg-green-600 hover:bg-green-700 text-white" }`} >
+                                className={`px-8 py-4 rounded-lg font-semibold transition-colors ${mode
+                                        ? "bg-red-600 hover:bg-red-700 text-white"
+                                        : "bg-green-600 hover:bg-green-700 text-white"
+                                    }`}
+                            >
                                 {mode ? "Stop" : "Start"}
                             </button>
-                            
+
                             {/* Reset Button */}
-                            <button 
+                            <button
                                 onClick={handelReset}
                                 className="bg-gray-600 hover:bg-gray-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
                                 Reset
