@@ -7,7 +7,13 @@ export const metadata: Metadata = {
   title: "Dev - Book",
   description: "A living dev journey: Everything I learn, build, and improve in React and web development",
   icons: {
-    icon: '/icons8-open-book-gradient-96.png',
+    icon: [
+      { url: '/icons8-open-book-gradient-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icons8-open-book-gradient-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons8-open-book-gradient-96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    shortcut: '/icons8-open-book-gradient-32.png',
+    apple: '/icons8-open-book-gradient-96.png',
   },
 };
 
