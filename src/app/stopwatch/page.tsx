@@ -1,4 +1,7 @@
+
 "use client";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function StopwatchCode() {
   const codeString =
@@ -49,7 +52,7 @@ export default function StopwatchCode() {
           <p className="text-gray-300 text-lg">This demonstrates a functional stopwatch with start, stop, and reset in React.</p>
         </div>
         <div className="bg-gray-900 rounded-xl p-6 border border-gray-700 overflow-x-auto">
-          <pre className="text-sm leading-6 whitespace-pre-wrap"><code>{codeString}</code></pre>
+           <SyntaxHighlighter language="tsx" style={vscDarkPlus} customStyle={{margin:0,borderRadius:'1rem',fontSize:'16px',lineHeight:'1.7'}}>{codeString}</SyntaxHighlighter>
         </div>
         <div className="mt-8 text-center">
           <button onClick={() => window.history.back()} className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors">← Back to Components</button>

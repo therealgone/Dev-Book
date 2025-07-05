@@ -27,7 +27,7 @@ export default function Stopwatch() {
   const sec = time % 60;
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
+    <div className="min-h-screen  text-white pt-20">
       <h1 className="text-7xl text-center font-bold text-[#007ACC] drop-shadow-[0_0_10px_#007ACC] mb-16">
         Stopwatch
       </h1>
@@ -36,7 +36,7 @@ export default function Stopwatch() {
         <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
           <button
             className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-2 rounded-lg font-semibold transition-colors mb-4"
-            onClick={() => router.push('/stopwatch/code')}
+            onClick={() => router.push('/stopwatch')}
           >
             Show Code
           </button>
