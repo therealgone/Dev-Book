@@ -72,6 +72,8 @@ export default function BasicReact() {
                     onClick={handelclick}>
                     ADD
                 </button>
+                <button
+                onClick={() => setCount(0)}>Clear</button>
                 <h1>{count}</h1>
             </div>
 

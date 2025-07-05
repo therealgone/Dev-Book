@@ -14,7 +14,7 @@ import Github from "./components/GithubAPI";
 export default function Home() {
   return (
 
-    <main>
+    <main className="bg-dark text-white">
       <section className="min-h-screen">
         <Welcome />
       </section>
@@ -31,7 +31,7 @@ export default function Home() {
       <section>
         <Limit />
       </section>
-      <section className="min-h-screen text-black">
+      <section className="min-h-screen">
       <Github/>
       </section>
       <section className="max-h-screen ">
