@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 
-
 export default function BasicReact() {
-
     const [count, setCount] = useState(0);
     const [input, SetInput] = useState("");
     const [show, SetShow] = useState(false)
@@ -12,15 +10,8 @@ export default function BasicReact() {
     const [todo, SetTodo] = useState<string[]>([]);
     const [color, SetColor] = useState("");
 
-
-
-
-
-
-
     const handelinput = (e: React.ChangeEvent<HTMLInputElement>) => {
         SetInput(e.target.value)
-
     }
 
     const Enter = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -29,38 +20,28 @@ export default function BasicReact() {
         }
     }
 
-
     const handelbg = () => {
         SetMode(!mode)
-
     }
 
     const handelclick = () => {
         setCount(count + 1);
-
     }
-
 
     const Addtodo = () => {
         if (input.trim() === "")
             return;
         SetTodo([...todo, input])
         SetInput("");
-
     }
 
     const handeldelete = (index: number) => {
         const update = todo.filter((_, i) => i !== index);
         SetTodo(update)
-
     }
 
     const DeleteAll = () => {
-
     }
-
-
-
 
     return (
         <div className={`min-h-screen ${mode ? "bg-black text-white" : "bg-white text-black"}`}>
@@ -85,7 +66,6 @@ export default function BasicReact() {
                     onChange={handelinput}
                     placeholder="Enter"
                 >
-
 
                 </input>
                 <h1>{input}</h1>
@@ -135,7 +115,6 @@ export default function BasicReact() {
                 <button onClick={() => SetColor("blue")}>BLUE</button>
                 <button onClick={() => SetColor("orange")}>ORANGE</button>
                 <button onClick={() => SetColor("purple")}>PRUPLE</button>
-
 
             </div>
 

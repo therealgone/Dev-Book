@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export default function SimpleAPI() {
-
     const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
     const [weather, setWeather] = useState<{ temp: number, wind: number } | null>(null);
 
@@ -14,13 +13,9 @@ export default function SimpleAPI() {
                 const api = data.current_weather;
                 setWeather({ temp: api.temperature, wind: api.windspeed })
             })
-
-
-
     }, [coords]);
 
     return (
-
         <div>
             <button onClick={() => setCoords({ lat: 24.45, lon: 54.37 })}>🇦🇪 Abu Dhabi</button>
             <button onClick={() => setCoords({ lat: 28.61, lon: 77.21 })}>🇮🇳 India (Delhi)</button>
@@ -31,11 +26,9 @@ export default function SimpleAPI() {
             {weather && (
                 <div>
                     <p>Temp: {weather.temp}°C</p>
-                    <p>Wind: {weather.wind} m/s</p>
-                 
+                    <p>Wind: {weather.wind} m/s</p>
                 </div>
             )}
         </div>
     );
-
 }
