@@ -94,14 +94,6 @@ export default function BasicReact() {
         SetTodo(update)
     }
 
-    /**
-     * Placeholder function for clearing all todos
-     * Can be implemented to clear the entire todo list
-     */
-    const DeleteAll = () => {
-        // Logic for delete all - can be implemented as needed
-    }
-
     return (
         <div className={`min-h-screen text-white pt-20 transition-all duration-300 ${mode ? 'bg-gradient-to-b from-gray-900 to-black' : 'bg-transparent'
             }`}>

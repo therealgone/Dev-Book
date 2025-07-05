@@ -90,8 +90,9 @@ export default function Github() {
                 setReadme(bio);
             }
         }
-        catch (err: any) {
-            SetError(err.message)  // Set error message
+        catch (err: unknown) {
+            if (err instanceof Error) SetError(err.message)
+            else SetError('Unknown error')
         }
         finally {
             setLoading(false)  // End loading state
@@ -147,6 +148,7 @@ export default function Github() {
                         <div className="bg-gray-700 rounded-xl p-6 border border-gray-600 mb-6">
                             <div className="flex flex-col sm:flex-row items-center gap-6">
                                 {/* User Avatar */}
+                                {/* Consider using <Image /> from 'next/image' for optimization */}
                                 <img 
                                     src={userdata.avatar_url} 
                                     alt="avatar" 

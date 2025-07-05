@@ -25,7 +25,7 @@
 import { ChangeEvent, useState } from "react";
 import { useRouter } from 'next/navigation';
 
-export default function calc() {
+export default function Calc() {
     // State Management for calculator inputs and result
     const [numa, SetNuma] = useState("")    // First number input
     const [numb, SetNumb] = useState("")    // Second number input

@@ -31,7 +31,7 @@ export default function Welcome() {
             
             {/* Subtitle with Subtle Glow */}
             <h2 className="text-3xl text-shadow-[0_0_2px_white] mt-4">
-              A collection of everything I've learned
+              A collection of everything I&apos;ve learned
             </h2>
           </div>
        
@@ -40,7 +40,7 @@ export default function Welcome() {
             {/* Project Description */}
             <h3 className="text-gray-300 font-bold leading-relaxed">
               As I learn, I build. As I build, I forget. Dev-Book is my way of documenting everything — so I never lose track of my dev journey.
-              It's also a place for other devs to learn real-world things, just raw code and logic.
+              It&apos;s also a place for other devs to learn real-world things, just raw code and logic.
             </h3>
           </div>
 
