@@ -65,7 +65,7 @@ export default function stopwatch() {
                         <div className="flex gap-4">
                             <button
                                 onClick={() => { SetMode(!mode); }}
-                                className={`px-8 py-4 rounded-lg font-semibold transition-colors \\${
+                                className={`px-8 py-4 rounded-lg font-semibold transition-colors \\\${
                                     mode 
                                         ? "bg-red-600 hover:bg-red-700 text-white" 
                                         : "bg-green-600 hover:bg-green-700 text-white"
