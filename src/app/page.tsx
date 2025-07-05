@@ -14,7 +14,7 @@ import Github from "./components/GithubAPI";
 export default function Home() {
   return (
 
-    <main className="bg-dark text-white">
+    <main className="bg-dark  overflow-hidden ">
       <section>
         <Welcome />
       </section>

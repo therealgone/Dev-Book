@@ -64,8 +64,8 @@ export default function BasicReact() {
 
     return (
         <div className={`min-h-screen ${mode ? "bg-black text-white" : "bg-white text-black"}`}>
-            <div>
-                <h1>-Count-</h1>
+            <div className="p-10">
+                <h1 className="p-10">-Count-</h1>
 
                 <button
                     className=" bg-black text-white"
