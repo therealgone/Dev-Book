@@ -60,8 +60,8 @@ export default function Github() {
         setReadme("")
 
         try {
-            const me = await fetch(`https://raw.githubusercontent.com/${username}/${username}/main/README.md`)
-            const res = await fetch(`https://api.github.com/users/${username}`);
+            const me = await fetch(\`https://raw.githubusercontent.com/\${username}/\${username}/main/README.md\`)
+            const res = await fetch(\`https://api.github.com/users/\${username}\`);
             if (!res.ok) throw new Error("NO User Found");
             const data = await res.json();
             setUserdata(data);

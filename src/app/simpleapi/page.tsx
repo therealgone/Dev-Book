@@ -36,7 +36,7 @@ export default function SimpleAPI() {
 
     useEffect(() => {
         if (coords === null) return;
-        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current_weather=true`)
+        fetch(\`https://api.open-meteo.com/v1/forecast?latitude=\${coords.lat}&longitude=\${coords.lon}&current_weather=true\`)
             .then(res => res.json())
             .then(data => {
                 const api = data.current_weather;

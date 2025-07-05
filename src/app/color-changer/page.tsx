@@ -5,14 +5,14 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 export default function ColorChangerCode() {
   const codeString = `const [color, setColor] = useState("");
 
-<div className={`w-64 h-64 border-2 border-gray-600 rounded-xl transition-colors
-  ${color === "red" ? "bg-red-500" : ""}
-  ${color === "green" ? "bg-green-500" : ""}
-  ${color === "blue" ? "bg-blue-500" : ""}
-  ${color === "orange" ? "bg-orange-500" : ""}
-  ${color === "purple" ? "bg-purple-600" : ""}
-  ${!color ? "bg-gray-700" : ""}
-`} />
+<div className={\`w-64 h-64 border-2 border-gray-600 rounded-xl transition-colors
+  \${color === "red" ? "bg-red-500" : ""}
+  \${color === "green" ? "bg-green-500" : ""}
+  \${color === "blue" ? "bg-blue-500" : ""}
+  \${color === "orange" ? "bg-orange-500" : ""}
+  \${color === "purple" ? "bg-purple-600" : ""}
+  \${!color ? "bg-gray-700" : ""}
+\`} />
 
 <button onClick={() => setColor("red")}>RED</button>
 <button onClick={() => setColor("green")}>GREEN</button>
