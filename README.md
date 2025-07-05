@@ -1,5 +1,7 @@
 # 🚀 Dev-Book
 
+![UI](public/UI.png)
+
 > **A living dev journey: Everything I learn, build, and improve in React and web development**
 
 As I learn, I build. As I build, I forget. Dev-Book is my way of documenting everything — so I never lose track of my dev journey. It's also a place for other devs to learn real-world things, just raw code and logic.
