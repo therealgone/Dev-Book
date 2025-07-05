@@ -14,28 +14,63 @@ export default function SimpleAPI() {
                 const api = data.current_weather;
                 setWeather({ temp: api.temperature, wind: api.windspeed })
             })
-
-
-
     }, [coords]);
 
     return (
+        <div className="min-h-screen bg-dark text-white pt-20">
+            <h1 className="text-7xl text-center font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mb-16">
+                Weather API
+            </h1>
+            
+            <div className="max-w-4xl mx-auto px-6">
+                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h2 className="text-3xl font-bold text-[#007ACC] mb-8 text-center">Global Weather</h2>
+                    
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+                        <button 
+                            onClick={() => setCoords({ lat: 24.45, lon: 54.37 })}
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-4 py-3 rounded-lg font-semibold transition-colors text-sm">
+                            🇦🇪 Abu Dhabi
+                        </button>
+                        <button 
+                            onClick={() => setCoords({ lat: 28.61, lon: 77.21 })}
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-4 py-3 rounded-lg font-semibold transition-colors text-sm">
+                            🇮🇳 India (Delhi)
+                        </button>
+                        <button 
+                            onClick={() => setCoords({ lat: 35.68, lon: 139.69 })}
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-4 py-3 rounded-lg font-semibold transition-colors text-sm">
+                            🇯🇵 Japan (Tokyo)
+                        </button>
+                        <button 
+                            onClick={() => setCoords({ lat: 37.57, lon: 126.98 })}
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-4 py-3 rounded-lg font-semibold transition-colors text-sm">
+                            🇰🇷 South Korea (Seoul)
+                        </button>
+                        <button 
+                            onClick={() => setCoords({ lat: 1.35, lon: 103.82 })}
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-4 py-3 rounded-lg font-semibold transition-colors text-sm">
+                            🇸🇬 Singapore
+                        </button>
+                    </div>
 
-        <div>
-            <button onClick={() => setCoords({ lat: 24.45, lon: 54.37 })}>🇦🇪 Abu Dhabi</button>
-            <button onClick={() => setCoords({ lat: 28.61, lon: 77.21 })}>🇮🇳 India (Delhi)</button>
-            <button onClick={() => setCoords({ lat: 35.68, lon: 139.69 })}>🇯🇵 Japan (Tokyo)</button>
-            <button onClick={() => setCoords({ lat: 37.57, lon: 126.98 })}>🇰🇷 South Korea (Seoul)</button>
-            <button onClick={() => setCoords({ lat: 1.35, lon: 103.82 })}>🇸🇬 Singapore</button>
-
-            {weather && (
-                <div>
-                    <p>Temp: {weather.temp}°C</p>
-                    <p>Wind: {weather.wind} m/s</p>
-                 
+                    {weather && (
+                        <div className="bg-gray-700 rounded-xl p-6 border border-gray-600">
+                            <h3 className="text-2xl font-bold text-[#007ACC] mb-4 text-center">Current Weather</h3>
+                            <div className="grid grid-cols-2 gap-6 text-center">
+                                <div>
+                                    <p className="text-gray-400 text-lg mb-2">Temperature</p>
+                                    <p className="text-4xl font-bold text-white">{weather.temp}°C</p>
+                                </div>
+                                <div>
+                                    <p className="text-gray-400 text-lg mb-2">Wind Speed</p>
+                                    <p className="text-4xl font-bold text-white">{weather.wind} m/s</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
         </div>
     );
-
 }

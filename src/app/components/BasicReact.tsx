@@ -63,84 +63,141 @@ export default function BasicReact() {
 
 
     return (
-        <div className={`min-h-screen ${mode ? "bg-black text-white" : "bg-white text-black"}`}>
-            <div className="p-10">
-                <h1 className="p-10">-Count-</h1>
+        <div className="min-h-screen bg-dark text-white pt-20">
+            <h1 className="text-7xl text-center font-bold text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mb-16">
+                React Ground Zero
+            </h1>
+            
+            <div className="max-w-4xl mx-auto px-6 space-y-12">
+                {/* Count Section */}
+                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Counter</h2>
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                        <button
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                            onClick={handelclick}>
+                            ADD
+                        </button>
+                        <button
+                            className="bg-gray-600 hover:bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                            onClick={() => setCount(0)}>
+                            Clear
+                        </button>
+                    </div>
+                    <h1 className="text-6xl text-center font-bold text-white">{count}</h1>
+                </div>
 
-                <button
-                    className=" bg-black text-white"
-                    onClick={handelclick}>
-                    ADD
-                </button>
-                <button
-                onClick={() => setCount(0)}>Clear</button>
-                <h1>{count}</h1>
+                {/* Input Display Section */}
+                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Input Display</h2>
+                    <div className="flex flex-col items-center gap-4">
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={handelinput}
+                            placeholder="Enter text here..."
+                            className="w-full max-w-md px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007ACC]"
+                        />
+                        <h1 className="text-2xl font-semibold text-gray-300">{input}</h1>
+                    </div>
+                </div>
+
+                {/* Show/Hide Section */}
+                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Show/Hide</h2>
+                    <div className="flex flex-col items-center gap-4">
+                        <button
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                            onClick={() => SetShow(!show)}>
+                            {show ? "HIDE" : "SHOW"}
+                        </button>
+                        {show && (
+                            <h1 className="text-2xl font-semibold text-[#007ACC] text-shadow-[0_0_5px_#007ACC]">
+                                THIS IS SECRET TEXT
+                            </h1>
+                        )}
+                    </div>
+                </div>
+
+                {/* Theme Toggle */}
+                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Theme Toggle</h2>
+                    <div className="flex justify-center">
+                        <button
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                            onClick={handelbg}>
+                            {mode ? "LIGHT MODE" : "DARK MODE"}
+                        </button>
+                    </div>
+                </div>
+
+                {/* Todo List */}
+                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Todo List</h2>
+                    <div className="flex flex-col items-center gap-4 mb-6">
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={handelinput}
+                            onKeyDown={Enter}
+                            placeholder="Add a new todo..."
+                            className="w-full max-w-md px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007ACC]"
+                        />
+                        <button 
+                            className="bg-[#007ACC] hover:bg-[#005a99] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                            onClick={Addtodo}>
+                            Add Todo
+                        </button>
+                    </div>
+                    
+                    <div className="space-y-2">
+                        {todo.map((item, index) => (
+                            <div key={index} className="flex items-center justify-between bg-gray-700 p-4 rounded-lg">
+                                <span className="text-white font-medium">{item}</span>
+                                <button 
+                                    className="text-red-400 hover:text-red-300 transition-colors"
+                                    onClick={() => handeldelete(index)}>
+                                    ❌
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Color Changer */}
+                <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h2 className="text-3xl font-bold text-[#007ACC] mb-6 text-center">Color Changer</h2>
+                    <div className="flex flex-col items-center gap-6">
+                        <div className={`w-64 h-64 border-2 border-gray-600 rounded-xl transition-colors
+                            ${color === "red" ? "bg-red-500" : ""}
+                            ${color === "green" ? "bg-green-500" : ""}
+                            ${color === "blue" ? "bg-blue-500" : ""}
+                            ${color === "orange" ? "bg-orange-500" : ""}
+                            ${color === "purple" ? "bg-purple-600" : ""}
+                            ${!color ? "bg-gray-700" : ""}
+                        `} />
+                        
+                        <div className="flex flex-wrap justify-center gap-2">
+                            <button 
+                                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                                onClick={() => SetColor("red")}>RED</button>
+                            <button 
+                                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                                onClick={() => SetColor("green")}>GREEN</button>
+                            <button 
+                                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                                onClick={() => SetColor("blue")}>BLUE</button>
+                            <button 
+                                className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                                onClick={() => SetColor("orange")}>ORANGE</button>
+                            <button 
+                                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                                onClick={() => SetColor("purple")}>PURPLE</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div>
-
-                <input
-                    type="text"
-                    value={input}
-                    onChange={handelinput}
-                    placeholder="Enter"
-                >
-
-
-                </input>
-                <h1>{input}</h1>
-            </div>
-
-            <div>
-                <button
-                    onClick={() => SetShow(!show)}> {show ? "HIDE" : "SHOW"}</button>
-                <h1>{show && "THIS IS SECERT TEXT"}</h1>
-            </div>
-            <button
-                onClick={handelbg}
-            >
-                {mode ? "LIGHT MODE" : "DARK MODE"}
-            </button>
-
-            <div>
-                <input
-                    type="text"
-                    value={input}
-                    onChange={handelinput}
-                    onKeyDown={Enter}>
-                </input>
-                <button onClick={Addtodo}>add</button>
-
-                {todo.map((item, index) => (
-                    <ul key={index}>
-
-                        <li>{item} <button onClick={() => handeldelete(index)}> ❌ </button></li>
-                    </ul>
-
-                ))}
-
-            </div>
-
-            <div>
-                <h1 className={`w-[500px] h-[500px] border
-                ${color === "red" ? "bg-red-500" : ""}
-                ${color === "green" ? "bg-green-500" : ""}
-                ${color === "blue" ? "bg-blue-500" : ""}
-                ${color === "orange" ? "bg-orange-500" : ""}
-                ${color === "purple" ? "bg-purple-600" : ""}
-                `} >
-                </h1>
-                <button onClick={() => SetColor("red")}>RED</button>
-                <button onClick={() => SetColor("green")}>GREEN</button>
-                <button onClick={() => SetColor("blue")}>BLUE</button>
-                <button onClick={() => SetColor("orange")}>ORANGE</button>
-                <button onClick={() => SetColor("purple")}>PRUPLE</button>
-
-
-            </div>
-
         </div>
-
     );
 
 }
