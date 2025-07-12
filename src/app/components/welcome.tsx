@@ -26,7 +26,7 @@ export default function Welcome() {
             
             {/* Main Brand Name with Blue Glow Effect */}
             <h1 className="text-7xl text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mt-4">
-              Dev- Book
+              Dev - Book
             </h1>
             
             {/* Subtitle with Subtle Glow */}
