@@ -21,12 +21,12 @@ export default function Welcome() {
           <div className="text-center font-bold px-4 tracking-wider">
             {/* Primary Welcome Text */}
             <h1 className="text-6xl drop-shadow-[0_0_2px_white] tracking-widest">
-              Welcome To
+              Welcome To 
             </h1>
             
             {/* Main Brand Name with Blue Glow Effect */}
             <h1 className="text-7xl text-[#007ACC] text-shadow-[0_0_10px_#007ACC] mt-4">
-              Dev-Book
+              D e v - B o o k
             </h1>
             
             {/* Subtitle with Subtle Glow */}
