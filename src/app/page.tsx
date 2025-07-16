@@ -7,6 +7,7 @@ import SimpleAPI from "./components/SimpleAPI";
 import Limit from "./components/Text-limite";
 import Github from "./components/GithubAPI";
 import Section from "./components/Section";
+import Animation from "./components/animation";
 
 
 export default function Home() {
@@ -82,6 +83,15 @@ export default function Home() {
           <Github />
         </div>
       </Section>
+      <Section
+id='UI Animation'
+title="UI Animation"
+description="UI Animation and styles ">
+  <div className="card-modern">
+  <Animation></Animation>  
+  </div>
+
+</Section>
     </main>
   );
 }
