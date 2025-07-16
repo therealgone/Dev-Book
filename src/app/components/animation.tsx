@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-export default function animation() {
+export default function Animation() {
 
     const [relaodAnimation,setReloadAnimation]= useState(0)
 
