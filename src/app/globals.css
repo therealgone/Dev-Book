@@ -11,6 +11,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* For Webkit browsers (Chrome, Safari, Opera) */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Internet Explorer, Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none;
+}
+
+
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
