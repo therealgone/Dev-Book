@@ -30,6 +30,7 @@ This project is not static! As I grow as a developer, I'll keep adding new featu
 - **Weather API** - Fetch and display real-time weather data from multiple cities
 - **Text Tools** - Character and word counting with limit validation
 - **GitHub Integration** - Search and display GitHub profiles with README rendering
+- **UI Animation Demos** - Multiple interactive animation examples (Entry, Toggle, Hover & Click, Text Open) with dedicated show code pages for each, including detailed comments for learning
 
 ### 🎨 Modern UI/UX
 
@@ -44,8 +45,9 @@ This project is not static! As I grow as a developer, I'll keep adding new featu
 - **TypeScript** - Full type safety and better development experience
 - **Next.js 15** - Latest React framework with App Router
 - **Tailwind CSS v4** - Modern utility-first CSS framework
-- **Component Documentation** - Well-documented code with JSDoc comments
+- **Component Documentation** - Well-documented code with JSDoc comments and in-app show code pages for all major demos
 - **Error Handling** - Robust error handling for API calls and user interactions
+- **ESLint Clean** - All unused imports and code errors fixed for smooth deployment
 
 ## 🛠️ Technologies Used
 
@@ -176,6 +178,13 @@ That's it! Your site will be live on a Vercel URL. You can also set up a custom 
 - User profile data fetching
 - README.md content rendering
 - Loading states and error handling
+
+### 8. **UI Animation** (`animation.tsx`)
+- **Entry Animation** - Animated box with reload
+- **Toggle Animation** - Spring-based toggle switch
+- **Hover & Click Animation** - Scale effects on hover and tap
+- **Text Open Animation** - Shape morph and animated text reveal
+- **Show Code Pages** - Each animation demo links to a dedicated show code page with copy-paste ready, well-commented code for easy learning
 
 ## 🎨 Design System
 
