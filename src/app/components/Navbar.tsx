@@ -1,5 +1,4 @@
 "use client";
-import { label } from "framer-motion/client";
 import { useState, useEffect } from "react";
 
 const navLinks = [
