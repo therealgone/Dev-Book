@@ -1,4 +1,5 @@
 "use client";
+import { label } from "framer-motion/client";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -9,6 +10,7 @@ const navLinks = [
   { id: "api", label: "API" },
   { id: "text", label: "Text Tools" },
   { id: "github", label: "GitHub" },
+  {id: "UI Animation" , label:"UI Animation"}
 ];
 
 export default function Navbar() {
