@@ -98,20 +98,7 @@ This project is not static! As I grow as a developer, I'll keep adding new featu
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
 
----
 
-## ▲ Vercel Deployment (Recommended)
-
-This project is **Vercel-ready**! You can deploy it in seconds:
-
-1. [Go to Vercel](https://vercel.com/import/git)
-2. Import your fork of this repo (or use the GitHub link directly)
-3. Set up the project (Vercel auto-detects Next.js)
-4. Click **Deploy**
-
-That's it! Your site will be live on a Vercel URL. You can also set up a custom domain.
-
----
 
 ## 📚 Learning Concepts Covered
 
